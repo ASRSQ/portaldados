@@ -8,6 +8,9 @@ use App\Http\Controllers\TodosCarrosController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RelacionamentoController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FgtsController;
+use App\Http\Controllers\PrefeituraController;
+use App\Http\Controllers\DadosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +49,6 @@ Route::put('/relacionamento/{id}', 'App\Http\Controllers\RelacionamentoControlle
 Route::put('/relacionamento/{id}', [RelacionamentoController::class, 'update'])->name('relacionamento.update');
 Route::any('/copy-to-imovel-table', [MostraDadosController::class, 'copyToImovelTable']);
 Route::post('/mover-dados', [MostraDadosController::class, 'moverDados'])->name('moverDados');
+Route::get('/fgts', [FgtsController::class, 'index'])->name('fgts.index');
+Route::get('/prefeituras', [PrefeituraController::class, 'index'])->name('prefeituras.index');
+Route::get('/dados', [DadosController::class, 'index'])->name('dados');
