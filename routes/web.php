@@ -11,6 +11,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FgtsController;
 use App\Http\Controllers\PrefeituraController;
 use App\Http\Controllers\DadosController;
+use App\Http\Controllers\UserDataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,3 +53,4 @@ Route::post('/mover-dados', [MostraDadosController::class, 'moverDados'])->name(
 Route::get('/fgts', [FgtsController::class, 'index'])->name('fgts.index');
 Route::get('/prefeituras', [PrefeituraController::class, 'index'])->name('prefeituras.index');
 Route::get('/dados', [DadosController::class, 'index'])->name('dados');
+Route::get('/search/{searchQuery}', [UserDataController::class, 'searchUserData']);
