@@ -28,8 +28,9 @@
   
   function buscar() {
       var searchTerm = document.getElementById("tags").value;
-      window.location.href = '/search/' + encodeURIComponent(searchTerm);
-  }
+      window.location.href = '/portaldados/public/search/' + encodeURIComponent(searchTerm);
+}
+
   </script>
 
 @endsection
