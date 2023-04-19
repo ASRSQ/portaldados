@@ -54,3 +54,7 @@ Route::get('/fgts', [FgtsController::class, 'index'])->name('fgts.index');
 Route::get('/prefeituras', [PrefeituraController::class, 'index'])->name('prefeituras.index');
 Route::get('/dados', [DadosController::class, 'index'])->name('dados');
 Route::get('/search/{searchQuery}', [UserDataController::class, 'searchUserData']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
