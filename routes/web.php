@@ -24,37 +24,35 @@ use App\Http\Controllers\UserDataController;
 |
 */
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+    Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+    Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.post');
-Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('register.post');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/teste',[MachineController::class,'show']);
+    Route::get('/',[InicialController::class,'index']);
+    Route::get('/mostradados',[MostraDadosController::class,'index']);
+    Route::get('/mostradados/email',[MostraDadosController::class,'email']);
+    Route::get('/todoscarros',[TodosCarrosController::class,'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/dashboard/create', [DashboardController::class, 'create'])->name('dashboard.create');
+    Route::post('/dashboard', [DashboardController::class, 'store'])->name('dashboard.store');
+    Route::get('/dashboard/{id}', [DashboardController::class, 'show'])->name('dashboard.show');
+    Route::get('/dashboard/{id}/edit', [DashboardController::class, 'edit'])->name('dashboard.edit');
+    Route::put('/dashboard/{id}', [DashboardController::class, 'update'])->name('dashboard.update');
+    Route::delete('/dashboard/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
+    Route::get('/dashboard/data/{type}/{date}', 'DashboardController@getData')->name('dashboard.data');
+    Route::get('/relacionamentos', 'App\Http\Controllers\RelacionamentoController@index')->name('relacionamento.index');
+    Route::get('/relacionamento/{id}/edit', 'App\Http\Controllers\RelacionamentoController@edit')->name('relacionamento.edit');
+    Route::put('/relacionamento/{id}', 'App\Http\Controllers\RelacionamentoController@update')->name('relacionamento.update');
+    Route::put('/relacionamento/{id}', [RelacionamentoController::class, 'update'])->name('relacionamento.update');
+    Route::any('/copy-to-imovel-table', [MostraDadosController::class, 'copyToImovelTable']);
+    Route::post('/mover-dados', [MostraDadosController::class, 'moverDados'])->name('moverDados');
+    Route::get('/fgts', [FgtsController::class, 'index'])->name('fgts.index');
+    Route::get('/prefeituras', [PrefeituraController::class, 'index'])->name('prefeituras.index');
+    Route::get('/dados', [DadosController::class, 'index'])->name('dados');
+    Route::get('/search/{searchQuery}', [UserDataController::class, 'searchUserData']);
+});
 
-Route::get('/teste',[MachineController::class,'show']);
-Route::get('/',[InicialController::class,'index']);
-Route::get('/mostradados',[MostraDadosController::class,'index']);
-Route::get('/mostradados/email',[MostraDadosController::class,'email']);
-Route::get('/todoscarros',[TodosCarrosController::class,'index']);
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-Route::get('/dashboard/create', [DashboardController::class, 'create'])->name('dashboard.create');
-Route::post('/dashboard', [DashboardController::class, 'store'])->name('dashboard.store');
-Route::get('/dashboard/{id}', [DashboardController::class, 'show'])->name('dashboard.show');
-Route::get('/dashboard/{id}/edit', [DashboardController::class, 'edit'])->name('dashboard.edit');
-Route::put('/dashboard/{id}', [DashboardController::class, 'update'])->name('dashboard.update');
-Route::delete('/dashboard/{id}', [DashboardController::class, 'destroy'])->name('dashboard.destroy');
-Route::get('/dashboard/data/{type}/{date}', 'DashboardController@getData')->name('dashboard.data');
-Route::get('/relacionamentos', 'App\Http\Controllers\RelacionamentoController@index')->name('relacionamento.index');
-Route::get('/relacionamento/{id}/edit', 'App\Http\Controllers\RelacionamentoController@edit')->name('relacionamento.edit');
-Route::put('/relacionamento/{id}', 'App\Http\Controllers\RelacionamentoController@update')->name('relacionamento.update');
-Route::put('/relacionamento/{id}', [RelacionamentoController::class, 'update'])->name('relacionamento.update');
-Route::any('/copy-to-imovel-table', [MostraDadosController::class, 'copyToImovelTable']);
-Route::post('/mover-dados', [MostraDadosController::class, 'moverDados'])->name('moverDados');
-Route::get('/fgts', [FgtsController::class, 'index'])->name('fgts.index');
-Route::get('/prefeituras', [PrefeituraController::class, 'index'])->name('prefeituras.index');
-Route::get('/dados', [DadosController::class, 'index'])->name('dados');
-Route::get('/search/{searchQuery}', [UserDataController::class, 'searchUserData']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
