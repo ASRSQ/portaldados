@@ -48,6 +48,21 @@
         </div>
       </div>
       <div class="col-sm-9">
+        <div class="container-fluid bg-light">
+          <div class="container">
+            <div class="row py-3">
+              <div class="col">
+                <span>Bem-vindo(a), {{ Auth::user()->name }}!</span>
+              </div>
+              <div class="col-auto">
+                <form method="POST" action="{{ route('logout') }}">
+                  @csrf
+                  <button type="submit" class="btn btn-link">Sair</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
         @yield('content')
       </div>
     </div>
