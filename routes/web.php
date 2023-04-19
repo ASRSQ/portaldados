@@ -25,17 +25,6 @@ use App\Http\Controllers\UserDataController;
 */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [AuthController::class, 'login'])->name('login.post');
-    Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
-    Route::post('/register', [AuthController::class, 'register'])->name('register.post');
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-    Route::get('/teste',[MachineController::class,'show']);
-    Route::get('/',[InicialController::class,'index']);
-    Route::get('/mostradados',[MostraDadosController::class,'index']);
-    Route::get('/mostradados/email',[MostraDadosController::class,'email']);
-    Route::get('/todoscarros',[TodosCarrosController::class,'index']);
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/dashboard/create', [DashboardController::class, 'create'])->name('dashboard.create');
     Route::post('/dashboard', [DashboardController::class, 'store'])->name('dashboard.store');
@@ -55,4 +44,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dados', [DadosController::class, 'index'])->name('dados');
     Route::get('/search/{searchQuery}', [UserDataController::class, 'searchUserData']);
 });
+
+// Rotas de login e registro
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.post');
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
