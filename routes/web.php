@@ -26,6 +26,10 @@ use App\Http\Controllers\UserDataController;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/',[InicialController::class,'index']);
+    Route::get('/mostradados',[MostraDadosController::class,'index']);
+    Route::get('/mostradados/email',[MostraDadosController::class,'email']);
+    Route::get('/todoscarros',[TodosCarrosController::class,'index']);
     Route::get('/dashboard/create', [DashboardController::class, 'create'])->name('dashboard.create');
     Route::post('/dashboard', [DashboardController::class, 'store'])->name('dashboard.store');
     Route::get('/dashboard/{id}', [DashboardController::class, 'show'])->name('dashboard.show');
