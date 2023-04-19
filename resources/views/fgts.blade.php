@@ -3,9 +3,6 @@
 @section('title','FGTS')
 
 @section('content')
-@php
-    session(['cidade' => $cidade]);
-@endphp
 <div class="container">
     
     <h1>Lista de FGTS</h1>
@@ -33,12 +30,10 @@
                             <option value="">Todas</option>
                             @if ($uf)
                                 @foreach ($cidades->get($uf, collect()) as $cidadeRow)
-                                    <option value="{{ $cidadeRow }}" @if (session('cidade', '') == $cidadeRow) selected @endif>{{ $cidadeRow }}</option>
+                                    <option value="{{ $cidadeRow }}" @if ($cidade == $cidadeRow) selected @endif>{{ $cidadeRow }}</option>
                                 @endforeach
                             @endif
                         </select>
-                        
-                        
                     </div>
                 </div>
             </div>
@@ -70,7 +65,9 @@
                     <td>{{ $fgtsItem->CPF2 }}</td>
                     <td>{{ $fgtsItem->pis }}</td>
                     <td>{{ $fgtsItem->saldo }}</td>
-                  
+                    <td>
+                        <a href="/search/{{ $fgtsItem->nome }}">Ver mais</a>
+                    </td>
                 </tr>
             @empty
                 <tr>
@@ -85,6 +82,24 @@
 
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        // Seleciona a cidade previamente selecionada
+        var cidade = "{{ old('cidade') }}";
+        $('#cidade').val(cidade);
+        
+        // Salva o valor selecionado no localStorage
+        $('#cidade').on('change', function() {
+            localStorage.setItem('cidadeSelecionada', $(this).val());
+        });
+        
+        // Recupera o valor selecionado do localStorage
+        var cidadeSelecionada = localStorage.getItem('cidadeSelecionada');
+        if (cidadeSelecionada) {
+            $('#cidade').val(cidadeSelecionada);
+        }
+    });
+</script>
 
 <style>
     .w-5{

@@ -17,6 +17,7 @@
                             <option value="{{ $ufItem->UF }}"{{ $ufItem->UF == request('uf') ? ' selected' : '' }}>{{ $ufItem->UF }}</option>
                         @endforeach
                     </select>
+                    
                 </div>
             </div>
             
@@ -25,16 +26,21 @@
                 <div class="col-sm-4">
                     <select name="cidade" id="cidade" class="form-control">
                         <option value="">Todas</option>
-                        
-                            @foreach($cidades as $uf => $cidadesByUf)
+                        @if ($uf)
+                            @foreach ($cidades as $cidadeItem)
+                                <option value="{{ $cidadeItem }}"{{ $cidadeItem == request('cidade') ? ' selected' : '' }}>{{ $cidadeItem }}</option>
+                            @endforeach
+                        @else
+                            @foreach ($cidades as $uf => $cidadesByUf)
                                 <optgroup label="{{ $uf }}">
-                                    @foreach($cidadesByUf as $cidade)
-                                        <option value="{{ $cidade }}" data-uf="{{ $uf }}"{{ $cidade == request('cidade') ? ' selected' : '' }}>{{ $cidade }}</option>
+                                    @foreach ($cidadesByUf as $cidadeItem)
+                                        <option value="{{ $cidadeItem }}" data-uf="{{ $uf }}"{{ $cidadeItem == request('cidade') ? ' selected' : '' }}>{{ $cidadeItem }}</option>
                                     @endforeach
                                 </optgroup>
                             @endforeach
-                        
+                        @endif
                     </select>
+                    
                 </div>
             </div>
             
@@ -60,8 +66,11 @@
                     <tr>
                         <td>{{ $prefeitura->NOME_A }}</td>
                         <td>{{ $prefeitura->CPF }}</td>
-                        <td>{{ $prefeitura->NOME_LOCALIDADE }}</td>
+                        <td>{{ $prefeitura->CIDADE }}</td>
                         <td>{{ $prefeitura->UF }}</td>
+                        <td>
+                            <a href="/search/{{ $prefeitura->NOME_A }}">Ver mais</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Carro;
-use App\Models\Fgts;
+use App\Models\FGTS;
 use App\Models\Prefeitura;
 use Illuminate\Support\Facades\Log;
 
@@ -38,14 +38,16 @@ class UserDataController extends Controller
         })
         ->get();
     
-        $fgts = Fgts::where('nome', 'LIKE', "%{$searchQuery}%")
+        $fgts = Fgts::whereRaw("UPPER(nome) LIKE ?", ["%".strtoupper($searchQuery)."%"])
             ->orWhere('CPF2', 'LIKE', "%{$searchQuery}%")
             ->orWhere('movel1', 'LIKE', "%{$searchQuery}%")
             ->orWhere('movel2', 'LIKE', "%{$searchQuery}%")
             ->orWhere('movel3', 'LIKE', "%{$searchQuery}%")
-            ->get();
+            ->paginate(10);
+            //->get();
+
     
-        $prefeituras = Prefeitura::where('NOME_A', 'LIKE', "%{$searchQuery}%")
+            $prefeituras = Prefeitura::whereRaw("UPPER(NOME_A) LIKE ?", ["%".strtoupper($searchQuery)."%"])
             ->orWhere('CPF', 'LIKE', "%{$searchQuery}%")
             ->orWhere(function ($query) use ($ddd, $telefone, $searchQuery, $hasMoreThanNineCharacters) {
                 if ($hasMoreThanNineCharacters && !empty($ddd) && !empty($telefone)) {
@@ -72,7 +74,8 @@ class UserDataController extends Controller
                     });
                 }
             })
-            ->get();
+            ->paginate(10); // limita a 10 resultados por página
+
     
         return view('user_data', ['carros' => $carros, 'fgts' => $fgts, 'prefeituras' => $prefeituras]);
     }
