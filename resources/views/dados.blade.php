@@ -8,10 +8,10 @@
         <div class="card-header">{{ __('Minha Lista de Botões') }}</div>
         <div class="card-body">
           <div class="buttons-list">
-            <a href="/fgts">
+            <a href="{{ url('/fgts') }}">
               <img src="{{ asset('img/5a86f916aaca2708a6936152b235bd70.png') }}" alt="Botão FGTS" class="img-fluid">
             </a>
-            <a href="/prefeituras">
+            <a href="{{ url('/prefeituras') }}">
               <img src="{{ asset('img/2799e9bea74aff46a31624ff09702f58.png') }}" alt="Botão Prefeituras" class="img-fluid">
             </a>
           </div>
