@@ -114,4 +114,4 @@
         }
     });
 </script>
-@section
+@endsection
