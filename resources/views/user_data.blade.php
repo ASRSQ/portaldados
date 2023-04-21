@@ -11,8 +11,8 @@
           <ul>
             @foreach($carros->take(1) as $carro)
             <li>
-              <div style="flex: 1 1 50%;">
-                <div style="display: flex; flex-direction: column;">
+              <div style="display: flex; flex-wrap: wrap;">
+                <div style="flex: 1 1 50%;">
                     <div>
                         <strong>Vendedor:</strong> {{ $carro->Vendedor }}
                     </div>
