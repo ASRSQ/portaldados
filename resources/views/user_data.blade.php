@@ -78,57 +78,9 @@
                     <span>{{ $fgt->movel3 }}</span>
                   </div>
                 </div>
-                <div style="flex: 1 1 50%;">
-                  <div>
-                    <strong>ID:</strong>
-                    <span>{{ $fgt->id }}</span>
-                  </div>
-                  <div>
-                    <strong>CBO:</strong>
-                    <span>{{ $fgt->cbo }}</span>
-                  </div>
-                
-                  <div>
-                    <strong>CNAE:</strong>
-                    <span>{{ $fgt->cnae }}</span>
-                  </div>
-                  <div>
-                    <strong>CNPJ:</strong>
-                    <span>{{ $fgt->cnpj }}</span>
-                  </div>
-                  <div>
-                    <strong>Complemento:</strong>
-                    <span>{{ $fgt->complemento }}</span>
-                  </div>
-                  <div>
-                    <strong>Email 1:</strong>
-                    <span>{{ $fgt->email1 }}</span>
-                  </div>
-                  <div>
-                    <strong>Fixo 1:</strong>
-                    <span>{{ $fgt->fixo1 }}</span>
-                  </div>
-                  <div>
-                    <strong>Fixo 2:</strong>
-                    <span>{{ $fgt->fixo2 }}</span>
-                  </div>
-                  <div>
-                    <strong>Fixo 3:</strong>
-                    <span>{{ $fgt->fixo3 }}</span>
-                  </div>
-                  <div>
-                    <strong>Saldo:</strong>
-                    <span>{{ $fgt->saldo }}</
-                    </div>
-                    <div>
-                      <strong>Sexo:</strong>
-                      <span>{{ $fgt->sexo }}</span>
-                    </div>
-                    <div>
-                      <strong>UF:</strong>
-                      <span>{{ $fgt->uf }}</span>
-                    </div>
-                  </div>
+               <div>
+                <a href="/portaldados/public/user-fgts/{{ $fgt->nome }}">Ver mais</a> 
+              </div>
                 </div>
               </li>
               @endforeach
