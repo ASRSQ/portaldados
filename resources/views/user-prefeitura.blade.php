@@ -4,11 +4,12 @@
 
 @section('content')
 <div>
-    <button onclick="sendSMS('{{ $prefeitura->TEL }}')">Enviar SMS</button>
-    <button onclick="sendEmail('{{ $prefeitura->EMAIL }}')">Enviar Email</button>
-    <button onclick="sendWhatsApp('{{ $prefeitura->CEL }}')">Enviar WhatsApp</button>
-    <button onclick="sendPessoal('{{ $prefeitura->NOME_A }}')">Contato Pessoal</button>
+  <button class="btn btn-primary" onclick="sendSMS('{{ $prefeitura->TEL }}')">Enviar SMS</button>
+  <button class="btn btn-secondary" onclick="sendEmail('{{ $prefeitura->EMAIL }}')">Enviar Email</button>
+  <button class="btn btn-success" onclick="sendWhatsApp('{{ $prefeitura->CEL }}')">Enviar WhatsApp</button>
+  <button class="btn btn-danger" onclick="sendPessoal('{{ $prefeitura->NOME_A }}')">Contato Pessoal</button>
 </div>
+
 <li>
     <div style="display: flex; flex-wrap: wrap;">
       <div style="flex: 1 1 50%;">
