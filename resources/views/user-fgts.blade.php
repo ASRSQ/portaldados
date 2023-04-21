@@ -4,10 +4,10 @@
 
 @section('content')
 <div>
-    <button onclick="sendSMS('{{ $prefeitura->TEL }}')">Enviar SMS</button>
-    <button onclick="sendEmail('{{ $prefeitura->EMAIL }}')">Enviar Email</button>
-    <button onclick="sendWhatsApp('{{ $prefeitura->CEL }}')">Enviar WhatsApp</button>
-    <button onclick="sendPessoal('{{ $prefeitura->NOME_A }}')">Contato Pessoal</button>
+    <button >Enviar SMS</button>
+    <button >Enviar Email</button>
+    <button >Enviar WhatsApp</button>
+    <button >Contato Pessoal</button>
 </div>
 <li>
     <div style="display: flex; flex-wrap: wrap;">
