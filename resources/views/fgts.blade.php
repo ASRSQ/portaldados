@@ -30,7 +30,7 @@
                             <option value="">Todas</option>
                             @if ($uf)
                                 @foreach ($cidades->get($uf, collect()) as $cidadeRow)
-                                    <option value="{{ $cidadeRow }}" @if ($cidade == $cidadeRow) selected @endif>{{ $cidadeRow }}</option>
+                                    <option value="{{ $cidadeRow }}" @if (session('cidadeSelecionada') == $cidadeRow) selected @endif>{{ $cidadeRow }}</option>
                                 @endforeach
                             @endif
                         </select>
@@ -78,40 +78,40 @@
     </table>
 
     <div class="d-flex justify-content-center">
-        {{ $fgts->appends(['cidade' => $cidade, 'uf' => $uf])->links() }}
+        {{ $fgts->appends(['cidade' => session('cidadeSelecionada'), 'uf' => $uf])->links() }}
 
     </div>
 </div>
 <script>
     $(document).ready(function() {
         // Seleciona a cidade previamente selecionada
-        var cidade = "{{ $cidade }}";
+        var cidade = "{{ old('cidade') }}";
         $('#cidade').val(cidade);
         
-        // Salva o valor selecionado no localStorage
+        // Salva o valor selecionado na sessão
         $('#cidade').on('change', function() {
             var cidadeSelecionada = $(this).val();
-            localStorage.setItem('cidadeSelecionada', cidadeSelecionada);
-            window.location.href = "{{ route('fgts.index') }}?cidade=" + cidadeSelecionada + "&uf={{ $uf }}";
+            $.ajax({
+                url: "{{ route('fgts.cidade') }}",
+                type: "POST",
+                data: {
+                    cidade: cidadeSelecionada,
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(xhr) {
+                    console.log(xhr.responseText);
+                }
+            });
         });
-        
-        // Recupera o valor selecionado do localStorage
-        var cidadeSelecionada = localStorage.getItem('cidadeSelecionada');
+
+        // Recupera o valor selecionado da sessão
+        var cidadeSelecionada = "{{ session('cidadeSelecionada') }}";
         if (cidadeSelecionada) {
             $('#cidade').val(cidadeSelecionada);
         }
     });
 </script>
-
-
-
-<style>
-    .w-5{
-        display:none;
-    }
-    .passar{
-        padding: 10px;
-    }
-</style>
-
-@endsection
+@section
