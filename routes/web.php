@@ -12,6 +12,7 @@ use App\Http\Controllers\FgtsController;
 use App\Http\Controllers\PrefeituraController;
 use App\Http\Controllers\DadosController;
 use App\Http\Controllers\UserDataController;
+use App\Http\Controllers\UserPrefeituraController;
 
 /*
 |--------------------------------------------------------------------------
