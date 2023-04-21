@@ -69,7 +69,7 @@
                         <td>{{ $prefeitura->CIDADE }}</td>
                         <td>{{ $prefeitura->UF }}</td>
                         <td>
-                            <a href="/portaldados/public/search/{{ $prefeitura->NOME_A }}">Ver mais</a>
+                            <a href="/portaldados/public/user-prefeitura/{{ $prefeitura->NOME_A }}">Ver mais</a>
                         </td>
                     </tr>
                 @endforeach
