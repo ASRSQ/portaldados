@@ -70,4 +70,8 @@
         </div>
     </div>
 </div>
+
+
+
+@csrf
 @endsection
