@@ -24,6 +24,9 @@
                     <div>
                         <strong>Telefone Descrição:</strong> {{ $carro->Telefone_Descricao }}
                     </div>
+                    <div>
+                      <a href="/portaldados/public/mostradados?nome={{ $carro->Vendedor }}">Ver mais</a>
+                    </div>
                 </div>
             </li>
         @endforeach
