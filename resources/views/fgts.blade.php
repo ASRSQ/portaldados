@@ -85,12 +85,14 @@
 <script>
     $(document).ready(function() {
         // Seleciona a cidade previamente selecionada
-        var cidade = "{{ old('cidade') }}";
+        var cidade = "{{ $cidade }}";
         $('#cidade').val(cidade);
         
         // Salva o valor selecionado no localStorage
         $('#cidade').on('change', function() {
-            localStorage.setItem('cidadeSelecionada', $(this).val());
+            var cidadeSelecionada = $(this).val();
+            localStorage.setItem('cidadeSelecionada', cidadeSelecionada);
+            window.location.href = "{{ route('fgts.index') }}?cidade=" + cidadeSelecionada + "&uf={{ $uf }}";
         });
         
         // Recupera o valor selecionado do localStorage
@@ -100,6 +102,7 @@
         }
     });
 </script>
+
 
 
 <style>
