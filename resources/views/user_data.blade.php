@@ -11,6 +11,7 @@
           <ul>
             @foreach($carros->take(1) as $carro)
             <li>
+              <div style="flex: 1 1 50%;">
                 <div style="display: flex; flex-direction: column;">
                     <div>
                         <strong>Vendedor:</strong> {{ $carro->Vendedor }}
@@ -24,6 +25,7 @@
                     <div>
                         <strong>Telefone Descrição:</strong> {{ $carro->Telefone_Descricao }}
                     </div>
+                </div>
                     <div>
                       <a href="/portaldados/public/mostradados?nome={{ $carro->Vendedor }}">Ver mais</a>
                     </div>
