@@ -14,8 +14,8 @@
   <div class="container mx-0">
     <div class="row">
       <div class="col-sm-3 bg-primary vh-sm-100" >
-        <div class="offcanvas offcanvas-start d-none d-sm-block bg-primary vh-100" id="sidebarMenu" tabindex="-1">
-          <div class="offcanvas-body">
+        <div class="col-sm-3 bg-primary vh-sm-100 offcanvas offcanvas-start" id="sidebarMenu">
+
         <button type="button" class="btn btn-primary mr-3" onclick='location.href="{{ url('/dashboard') }}"'>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
                 <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17 1.247 0 3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"></path>
@@ -43,7 +43,6 @@
             </svg>
               Dados
         </button>
-          </div>
         </div>
       </div>
       <div class="col-sm-9">
@@ -52,9 +51,10 @@
             <div class="row py-3">
               <div class="col d-flex align-items-center">
                 <nav class="navbar">
-                  <button class="navbar-toggler d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-list"></i>
                   </button>
+                  
                 </nav>
               
                 <span class="welcome-message">Bem-vindo(a), {{ Auth::user()->name }}!</span>
@@ -77,19 +77,26 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
   <script>
-      document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {
       const navbarToggler = document.querySelector('.navbar-toggler');
-      const sidebarMenu = new bootstrap.Offcanvas(document.querySelector('#sidebarMenu'));
-
+      const sidebarMenu = document.querySelector('#sidebarMenu');
+  
       navbarToggler.addEventListener('click', function () {
-        sidebarMenu.toggle();
+        sidebarMenu.classList.toggle('d-none');
+        sidebarMenu.classList.toggle('d-sm-block');
       });
     });
-
   </script>
   
 </body>
 <style>
+    @media (min-width: 768px) {
+    .offcanvas {
+      position: static;
+      transform: none;
+    }
+  }
+
   .welcome-message {
     margin-left: 15px;
   }
