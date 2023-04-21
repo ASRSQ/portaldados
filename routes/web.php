@@ -49,6 +49,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/search/{searchQuery}', [UserDataController::class, 'searchUserData']);
     Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [AuthController::class, 'register'])->name('register.post');
+    Route::post('/fgts/cidade', [FgtsController::class, 'cidade'])->name('fgts.cidade');
+
 });
 
 // Rotas de login e registro
