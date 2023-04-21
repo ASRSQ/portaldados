@@ -50,6 +50,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [AuthController::class, 'register'])->name('register.post');
     Route::post('/fgts/cidade', [FgtsController::class, 'cidade'])->name('fgts.cidade');
+    Route::get('/user-prefeitura/{id}', [UserPrefeituraController::class, 'show'])->name('user.prefeitura');
+
 
 });
 
