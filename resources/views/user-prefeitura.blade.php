@@ -80,6 +80,22 @@
           <strong>CELOP:</strong>
           <span>{{ $prefeitura->CELOP }}</span>
         </div>
+        <div>
+            <strong>ddd3:</strong>
+            <span>{{ $prefeitura->ddd3 }}</span>
+          </div>
+          <div>
+            <strong>telefone3:</strong>
+            <span>{{ $prefeitura->telefone3 }}</span>
+          </div>
+          <div>
+            <strong>ddd4:</strong>
+            <span>{{ $prefeitura->ddd4 }}</span>
+          </div>
+          <div>
+            <strong>telefone4:</strong>
+            <span>{{ $prefeitura->telefone4 }}</span>
+          </div>
       </div>
       <div style="flex: 1 1 50%;">
         <div>
@@ -158,22 +174,6 @@
           <div>
             <strong>CONTATOS_ID:</strong>
             <span>{{ $prefeitura->CONTATOS_ID }}</span>
-          </div>
-          <div>
-            <strong>ddd3:</strong>
-            <span>{{ $prefeitura->ddd3 }}</span>
-          </div>
-          <div>
-            <strong>telefone3:</strong>
-            <span>{{ $prefeitura->telefone3 }}</span>
-          </div>
-          <div>
-            <strong>ddd4:</strong>
-            <span>{{ $prefeitura->ddd4 }}</span>
-          </div>
-          <div>
-            <strong>telefone4:</strong>
-            <span>{{ $prefeitura->telefone4 }}</span>
           </div>
           <div>
             <strong>TIPO_TELEFONE:</strong>
