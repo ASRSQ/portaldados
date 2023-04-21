@@ -11,6 +11,6 @@ class UserPrefeituraController extends Controller
     {
         $prefeitura = Prefeitura::where('NOME_A', $nome)->first();
 
-        return view('prefeitura', compact('prefeitura'));
+        return view('user-prefeitura', compact('prefeitura'));
     }
 }
