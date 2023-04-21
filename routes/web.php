@@ -13,6 +13,7 @@ use App\Http\Controllers\PrefeituraController;
 use App\Http\Controllers\DadosController;
 use App\Http\Controllers\UserDataController;
 use App\Http\Controllers\UserPrefeituraController;
+use App\Http\Controllers\UserFGTSController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +53,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/register', [AuthController::class, 'register'])->name('register.post');
     Route::post('/fgts/cidade', [FgtsController::class, 'cidade'])->name('fgts.cidade');
     Route::get('/user-prefeitura/{id}', [UserPrefeituraController::class, 'show'])->name('user.prefeitura');
-
+    Route::get('/user-fgts/{id}', [UserPrefeituraFGTS::class, 'index'])->name('user.fgts');
 
 });
 
