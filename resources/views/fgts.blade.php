@@ -114,4 +114,12 @@
         }
     });
 </script>
+<style>
+    .w-5{
+        display:none;
+    }
+    .passar{
+        padding: 10px;
+    }
+</style>
 @endsection
