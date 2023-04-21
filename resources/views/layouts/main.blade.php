@@ -11,7 +11,7 @@
 <body>
   <div class="container mx-0">
     <div class="row">
-      <div class="col-sm-3 bg-primary vh-sm-100">
+      <div class="col-sm-3 bg-primary vh-sm-100"  id="sidebarMenu">
         <div class="col-sm-3 bg-primary vh-sm-100 d-none d-sm-block">
         <button type="button" class="btn btn-primary mr-3" onclick='location.href="{{ url('/dashboard') }}"'>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
@@ -49,7 +49,8 @@
               <div class="col d-flex align-items-center">
                 <button class="navbar-toggler d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
-                </button>
+              </button>
+              
                 <span>Bem-vindo(a), {{ Auth::user()->name }}!</span>
               </div>
               <div class="col-auto">
