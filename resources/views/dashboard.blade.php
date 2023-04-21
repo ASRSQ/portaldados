@@ -11,7 +11,7 @@
     <h1 class="display-1">{{ $quantidadeLinksOnline }}</h1>
     <p class="lead">carros vendidos agora e todos são nossos clientes</p>
     <hr class="my-4">
-    <p>Veja a lista completa de carros vendidos <a href="http://localhost:8000/todoscarros">aqui</a>.</p>
+    <p>Veja a lista completa de carros vendidos <a href="/portaldados/public/todoscarros">aqui</a>.</p>
   </div>
 
 <h1>Carros cadastrados</h1>
