@@ -4,10 +4,10 @@
 
 @section('content')
 <div>
-    <button >Enviar SMS</button>
-    <button >Enviar Email</button>
-    <button >Enviar WhatsApp</button>
-    <button >Contato Pessoal</button>
+    <button class="btn btn-primary">Enviar SMS</button>
+    <button class="btn btn-secondary" >Enviar Email</button>
+    <button class="btn btn-success">Enviar WhatsApp</button>
+    <button class="btn btn-danger" >Contato Pessoal</button>
 </div>
 <li>
     <div style="display: flex; flex-wrap: wrap;">
