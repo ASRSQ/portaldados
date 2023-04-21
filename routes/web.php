@@ -47,12 +47,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/prefeituras', [PrefeituraController::class, 'index'])->name('prefeituras.index');
     Route::get('/dados', [DadosController::class, 'index'])->name('dados');
     Route::get('/search/{searchQuery}', [UserDataController::class, 'searchUserData']);
+    Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+    Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 });
 
 // Rotas de login e registro
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
-Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register'])->name('register.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
