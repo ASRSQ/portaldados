@@ -232,6 +232,9 @@
 
 </div>
 <style>
+  .pagination{
+    padding: 10px;
+  }
   .w-5{
       display:none;
   }
