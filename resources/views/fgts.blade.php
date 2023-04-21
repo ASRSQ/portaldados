@@ -66,7 +66,7 @@
                     <td>{{ $fgtsItem->pis }}</td>
                     <td>{{ $fgtsItem->saldo }}</td>
                     <td>
-                        <a href="/search/{{ $fgtsItem->nome }}">Ver mais</a>
+                        <a href="/portaldados/public/search/{{ $fgtsItem->nome }}">Ver mais</a>
                     </td>
                 </tr>
             @empty
