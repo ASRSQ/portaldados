@@ -24,7 +24,7 @@ class UserController extends Controller
             ]);
 
             $user->update($request->all());
-            return redirect()->route('/')->with('success', 'Dados atualizados com sucesso');
+            return redirect()->route('inicial.index')->with('success', 'Dados atualizados com sucesso');
         }
 
 }
