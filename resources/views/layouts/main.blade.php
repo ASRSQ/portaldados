@@ -18,16 +18,16 @@
     <div class="row">
     
       <div class="col-sm-3 bg-primary vh-sm-100">
-        <div class="row py-3">
-          <div class="col">
-              <p class="mb-0" style="color: white; font-size: medium;">{{ Auth::user()->name }}</p>
-              <form method="POST" action="{{ route('logout') }}" class="d-inline">
-                  @csrf
-                  <button type="submit" class="btn btn-link" style="color: white; font-size: medium;">Sair</button>
-              </form>
-          </div>
-      </div>
         <div class="mw-100 container d-flex flex-column d-flex align-items-center justify-content-center" style="height: 100vh;">
+          <div class="row py-3">
+            <div class="col">
+                <p class="mb-0" style="color: white; font-size: medium;">{{ Auth::user()->name }}</p>
+                <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                    @csrf
+                    <button type="submit" class="btn btn-link" style="color: white; font-size: medium;">Sair</button>
+                </form>
+            </div>
+        </div>
           <button type="button" class="btn btn-primary mr-3" onclick="location.href='{{ url('/') }}'">
 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
