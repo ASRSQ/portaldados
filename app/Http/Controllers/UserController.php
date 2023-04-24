@@ -20,8 +20,7 @@ class UserController extends Controller
             $user = Auth::user();
             $request->validate([
                 'name' => 'required',
-                'email' => 'required|email|unique:users,email,' . $user->id,
-                'phone' => 'required',
+                'email' => 'required|email|unique:users,email,' . $user->id
             ]);
 
             $user->update($request->all());
