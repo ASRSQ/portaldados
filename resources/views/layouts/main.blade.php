@@ -16,6 +16,16 @@
 <body>
   <div class="container mx-0">
     <div class="row">
+      <div class="row py-3">
+        <div class="col">
+            <p class="mb-0" style="color: white; font-size: medium;">{{ Auth::user()->name }}</p>
+            <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                @csrf
+                <button type="submit" class="btn btn-link" style="color: white; font-size: medium;">Sair</button>
+            </form>
+        </div>
+    </div>
+    
       <div class="col-sm-3 bg-primary vh-sm-100">
         <div class="mw-100 container d-flex flex-column d-flex align-items-center justify-content-center" style="height: 100vh;">
           <button type="button" class="btn btn-primary mr-3" onclick="location.href='{{ url('/') }}'">
@@ -50,17 +60,6 @@
       <div class="col-sm-9">
         <div class="container-fluid bg-light">
           <div class="container">
-            <div class="row py-3">
-              <div class="col">
-                <span>Bem-vindo(a), {{ Auth::user()->name }}!</span>
-              </div>
-              <div class="col-auto">
-                <form method="POST" action="{{ route('logout') }}">
-                  @csrf
-                  <button type="submit" class="btn btn-link">Sair</button>
-                </form>
-              </div>
-            </div>
           </div>
         </div>
         @yield('content')
