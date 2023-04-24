@@ -27,7 +27,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Atualizar</button>
-                        <a href="{{ route('home') }}" class="btn btn-default">Cancelar</a>
+                        <a href="{{ route('/') }}" class="btn btn-default">Cancelar</a>
                     </form>
                 </div>
             </div>
