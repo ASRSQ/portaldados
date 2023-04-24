@@ -14,6 +14,7 @@ use App\Http\Controllers\DadosController;
 use App\Http\Controllers\UserDataController;
 use App\Http\Controllers\UserPrefeituraController;
 use App\Http\Controllers\UserFGTSController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,8 +55,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/fgts/cidade', [FgtsController::class, 'cidade'])->name('fgts.cidade');
     Route::get('/user-prefeitura/{id}', [UserPrefeituraController::class, 'show'])->name('user.prefeitura');
     Route::get('/user-fgts/{id}', [UserFGTSController::class, 'index'])->name('user.fgts');
-    Route::get('/user/edit', 'App\Http\Controllers\UserController@edit')->name('users.edit');
-    Route::put('/user/update', 'App\Http\Controllers\UserController@update')->name('users.update');
+    Route::get('/user/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::put('/user/update', [UserController::class, 'update'])->name('users.update');
 
 });
 

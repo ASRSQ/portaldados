@@ -9,13 +9,13 @@ class UserController extends Controller
 {
     public function edit()
     {
-        $user = Auth::user();
+        $user = User::user();
         return view('users.edit', compact('user'));
     }
 
     public function update(Request $request)
     {
-        $user = Auth::user();
+        $user = User::user();
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users,email,' . $user->id,
