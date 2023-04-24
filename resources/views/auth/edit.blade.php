@@ -18,7 +18,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary mb-3">Atualizar</button>
-                    <a href="{{ route('inicial.index') }}" class="btn btn-default mb-3">Cancelar</a>
+                    <a href="/" class="btn btn-default mb-3">Cancelar</a>
                 </form>
             </div>
         </div>
