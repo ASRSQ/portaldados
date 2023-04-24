@@ -21,10 +21,6 @@
                             <input type="email" name="email" id="email" class="form-control" value="{{ $user->email }}" required>
                         </div>
 
-                        <div class="form-group">
-                            <label for="phone">Telefone:</label>
-                            <input type="text" name="phone" id="phone" class="form-control" value="{{ $user->phone }}" required>
-                        </div>
 
                         <button type="submit" class="btn btn-primary">Atualizar</button>
                         {{-- <a href="{{ route('/') }}" class="btn btn-default">Cancelar</a> --}}
