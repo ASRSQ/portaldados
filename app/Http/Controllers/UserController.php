@@ -12,7 +12,7 @@ class UserController extends Controller
     public function edit()
         {
             $user = Auth::user();
-            return view('users.edit', compact('user'));
+            return view('auth.edit', compact('user'));
         }
 
         public function update(Request $request)
