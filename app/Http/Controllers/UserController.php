@@ -20,11 +20,19 @@ class UserController extends Controller
             $user = Auth::user();
             $request->validate([
                 'name' => 'required',
-                'email' => 'required|email|unique:users,email,' . $user->id
+                'email' => 'required|email|unique:users,email,' . $user->id,
+                'password' => 'nullable|confirmed|min:8'
             ]);
-
-            $user->update($request->all());
+        
+            $data = $request->only(['name', 'email']);
+        
+            if ($request->filled('password')) {
+                $data['password'] = Hash::make($request->password);
+            }
+        
+            $user->update($data);
             return redirect()->to('/')->with('success', 'Dados atualizados com sucesso');
         }
+        
 
 }
