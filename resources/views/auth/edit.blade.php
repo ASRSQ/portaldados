@@ -28,8 +28,10 @@
                         <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                     </div>
 
-                    <button type="submit" class="btn btn-primary mb-3">Atualizar</button>
-                    <a href="/" class="btn btn-default mb-3">Cancelar</a>
+                    <div class="mt-3"> <!-- Adicionada classe mt-3 (margin-top) -->
+                        <button type="submit" class="btn btn-primary mb-3">Atualizar</button>
+                        <a href="/" class="btn btn-default mb-3">Cancelar</a>
+                    </div>
                 </form>
             </div>
         </div>
